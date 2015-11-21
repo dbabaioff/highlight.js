@@ -1,3 +1,12 @@
+# Fork
+
+This is a fork of Highlight.js. The only difference is that
+it adds line numberings.
+
+```javascript
+hljs.configure({lineNumbers: true});
+```
+
 # Highlight.js
 
 [![Build Status](https://travis-ci.org/isagalaev/highlight.js.svg?branch=master)](https://travis-ci.org/isagalaev/highlight.js)

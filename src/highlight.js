@@ -590,6 +590,14 @@ https://highlightjs.org/
       resultNode.innerHTML = result.value;
       result.value = mergeStreams(originalStream, nodeStream(resultNode), text);
     }
+    if (options.lineNumbers) {
+      var resultPre = document.createElement('pre');
+      resultPre.innerHTML = result.value;
+      var linesPre = document.createElement('pre');
+      var lines = escape(text.trimRight()).replace(/^.*?(\n|$)/gm, '<span class="' + options.classPrefix + 'line">$&</span>');
+      linesPre.innerHTML = lines;
+      result.value = mergeStreams(nodeStream(linesPre), nodeStream(resultPre), text);
+    }
     result.value = fixMarkup(result.value);
 
     block.innerHTML = result.value;
@@ -610,7 +618,8 @@ https://highlightjs.org/
     classPrefix: 'hljs-',
     tabReplace: null,
     useBR: false,
-    languages: undefined
+    languages: undefined,
+    lineNumbers: false
   };
 
   /*
